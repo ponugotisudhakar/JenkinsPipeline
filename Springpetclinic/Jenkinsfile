@@ -1,10 +1,6 @@
 node('Anible'){
-
-    stage('message'){
-        echo 'Hello Spring-Petclinic'
-    }
    
-    stage('git clone'){
+    stage('SCM'){
         git 'https://github.com/spring-projects/spring-petclinic.git'
 
     }
