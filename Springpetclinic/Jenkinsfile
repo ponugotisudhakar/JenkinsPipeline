@@ -1,0 +1,23 @@
+node('Anible'){
+
+    stage('message'){
+        echo 'Hello Spring-Petclinic'
+    }
+   
+    stage('git clone'){
+        git 'https://github.com/spring-projects/spring-petclinic.git'
+
+    }
+    stage('mvn pakcage'){
+        sh 'mvn pakcage'
+
+    }
+     stage('test results'){
+        junit 'target/surefire-reports/*.xml'
+
+    }
+    stage('archive'){
+        archive 'target/*.jar'
+
+    }
+}
