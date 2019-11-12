@@ -4,16 +4,17 @@ node('Anible'){
         git 'https://github.com/spring-projects/spring-petclinic.git'
 
     }
-    stage('mvn pakcage'){
-        sh 'mvn pakcage'
+    stage('mvn package'){
+        sh 'mvn package'
 
+    stage('archive'){
+        archive 'target/*.jar'
+
+    }
+    
     }
      stage('test results'){
         junit 'target/surefire-reports/*.xml'
-
-    }
-    stage('archive'){
-        archive 'target/*.jar'
 
     }
 }
